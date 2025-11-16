@@ -1,0 +1,131 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  --background: #fff;
+  --text-color: #000;
+  --switch-bg-off: #ccc;
+  --switch-bg-on: #4caf50;
+  --switch-slider-color: white;
+}
+
+body.dark-theme {
+  --background: #121212 !important;
+  --text-color: #b9b9b9 !important;
+  --switch-bg-off: #252525 !important;
+  --switch-bg-on: #205722 !important;
+  --switch-slider-color: rgb(24, 24, 24) !important;
+}
+
+.main {
+  min-height: 200px;
+  min-width: 200px;
+  max-height: 200px;
+  max-width: 200px;
+  background-color: var(--background);
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.toggle-switch {
+  --switch-width: 50px;
+  --switch-height: 24px;
+
+  position: relative;
+  display: inline-block;
+  width: var(--switch-width);
+  height: var(--switch-height);
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-switch .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--switch-bg-off);
+  border-radius: var(--switch-height);
+  transition: background-color 0.3s ease;
+}
+
+.toggle-switch .slider::before {
+  position: absolute;
+  content: '';
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: var(--switch-slider-color);
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.toggle-switch input:checked + .slider {
+  background-color: var(--switch-bg-on);
+}
+
+.toggle-switch input:checked + .slider::before {
+  transform: translateX(calc(var(--switch-width) - 21px));
+}
+
+.slider-container {
+  width: 80%;
+  margin: 50px auto;
+  text-align: center;
+}
+.slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 25px;
+  border-radius: 25px;
+  background: linear-gradient(to right, #fff 0%, #fff var(--percent), #ccc var(--percent), #ccc 100%);
+  outline: none;
+  opacity: 0.7;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  border: 1px solid #ccc;
+}
+
+/* Обновляем переменную --percent динамически через inline-стиль или js */
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+/* #brightness-value {
+    margin-top: 10px;
+    font-size: 18px;
+  } */
