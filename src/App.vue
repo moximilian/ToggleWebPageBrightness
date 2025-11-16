@@ -1,7 +1,7 @@
 <template>
     <div class="main">
-        {{ brightness }}
-        <SliderInput :v-model="brightness" :modelValue="brightness" @onChange="changeBrightness" />
+      <SliderInput :v-model="brightness" :modelValue="brightness" @onChange="changeBrightness" />
+      <p>{{ brightness }}%</p>
     </div>
 </template>
 

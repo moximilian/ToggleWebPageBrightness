@@ -36,7 +36,7 @@ export default {
     },
   },
   created() {
-    this.emit = debounce(this.emitEmmediate, 400)
+    this.emit = debounce(this.emitEmmediate, 200)
   },
 }
 </script>
