@@ -36,6 +36,9 @@ export default {
         value() {
             this.getcalcPosition()
         },
+        modelValue() {
+            this.value = this.modelValue
+        }
     },
     methods: {
         getcalcPosition() {
@@ -49,10 +52,13 @@ export default {
         emitEmmediate(val) {
             this.$emit('onChange', val)
         },
-        onInput(event) {
-            const val = event.target.value
-            this.emit(val)
+        onInput() {
+            this.emit(this.value)
         },
+    },
+    mounted() {
+      this.value = this.modelValue
+      this.getcalcPosition()
     },
     created() {
         this.emit = debounce(this.emitEmmediate, 200)
