@@ -1,7 +1,7 @@
 <template>
     <div class="main">
-      <SliderInput :v-model="brightness" :modelValue="brightness" @onChange="changeBrightness" />
-      <p>{{ brightness }}%</p>
+        <SliderInput :v-model="brightness" :modelValue="brightness" @onChange="changeBrightness" />
+        <p></p>
     </div>
 </template>
 
@@ -21,7 +21,7 @@ export default {
         },
     },
     created() {
-        chrome.storage.sync.get('lastRequest').then(items => {
+        chrome.storage?.sync.get('lastRequest').then(items => {
             this.brightness = items.lastRequest.value
         })
     },
