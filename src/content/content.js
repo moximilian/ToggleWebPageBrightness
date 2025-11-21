@@ -8,5 +8,6 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 })
 
 setBrightness = brightness => {
-    brightness !== undefined && (document.documentElement.style.filter = `brightness(${brightness / 100})`)
+    if (brightness === undefined) return
+    document.documentElement.style.filter = `brightness(${brightness / 100})`
 }
